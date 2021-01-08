@@ -106,7 +106,8 @@ background-color: white;
     function validate()
     {
         var usn=document.getElementById("usn");
-        var memail=document.getElementById("mobileORemail");
+        var memail=document.getElementById("email");
+        var mymobile=document.getElementById("mobile");
          var regx1=/^[E][N][G][1-2]\d[A-Z][A-Z]\d{4}$/;
         // var regx2=
          var regx3=/^[7-9]\d{9}$/;
@@ -128,12 +129,17 @@ background-color: white;
         if(regx1.test(usn.value))
         {
           //alert("Valid USN");
-            if(regx3.test(mobileORemail.value))
+            if(regx3.test(mymobile.value))
             {
             // alert("Valid no");
               return true;
             }
-            else if(regx4.test(mobileORemail.value))
+            else
+            {
+            alert("Invalid Phone Number");
+            return false;
+            }
+            if(regx4.test(memail.value))
             {
             // alert("valid email");
                 return true;
@@ -141,7 +147,7 @@ background-color: white;
             }
             else
             {
-            alert("Invalid Phone.no/email");
+            alert("Invalid email");
             return false;
             }
         }
@@ -216,12 +222,19 @@ window.onclick = function(e) {
             
 						<input type="text" class="form-control"  id="usn" placeholder="Enter your USN" required>
 						
+          </div>
+          <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></span>
+						</div>
+						<input type="text" class="form-control" id ="mobile" placeholder=" Enter your Phone number" required>
 					</div>
+					
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><strong>@</strong></span>
 						</div>
-						<input type="text" class="form-control" id ="mobileORemail" placeholder="Enter your Phone no./Email" required>
+						<input type="text" class="form-control" id ="email" placeholder="Enter your Email" required>
 					</div>
 					
 					<div class="form-group">
